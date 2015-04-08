@@ -12,6 +12,7 @@ class Main extends Application {
 	var _vidTexture:Texture;
 	var _vidSprite:Sprite;
 	var _vidElement:VideoElement;
+	var _direction = 1;
 
 	public function new() {
 		super();
@@ -42,7 +43,10 @@ class Main extends Application {
 	}
 
 	function _onUpdate(elapsedTime:Float) {
-
+		_vidSprite.x += _direction;
+		if(_vidSprite.x<=0 || (_vidSprite.x+_vidSprite.width)>=width) {
+			_direction *= -1;
+		}
 	}
 
 	function _onResize() {
